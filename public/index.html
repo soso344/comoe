@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Compressor</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-content">
+          <h1>Video Compressor</h1>
+
+          <form id="compressionForm">
+            <label for="videoUrl">Video URL</label>
+            <input
+              type="url"
+              id="videoUrl"
+              required
+              placeholder="https://example.com/video.mp4"
+              pattern="https?://.+"
+              title="Please enter a valid HTTP(S) URL"
+            />
+
+            <button type="submit" id="submitBtn">Start Compression</button>
+          </form>
+
+          <div id="progressContainer" class="progress-container">
+            <div class="progress-bar">
+              <div
+                id="progressBarFill"
+                class="progress-bar-fill"
+                style="width: 0%"
+              ></div>
+            </div>
+            <div class="progress-details">
+              <span id="statusText">Initializing...</span>
+              <span id="progressPercentage">0%</span>
+            </div>
+            <div id="fileSize" class="file-size"></div>
+            <div id="reconnectingMessage" class="reconnecting">
+              Connection lost. Reconnecting...
+            </div>
+          </div>
+
+          <div id="compressionStats" class="compression-stats">
+            <div>
+              <span>Original Size:</span>
+              <span id="originalSize"></span>
+            </div>
+            <div>
+              <span>Compressed Size:</span>
+              <span id="compressedSize"></span>
+            </div>
+            <div>
+              <span>Compression Ratio:</span>
+              <span id="compressionRatio"></span>
+            </div>
+          </div>
+
+          <a id="downloadLink" class="download-btn" href="#" download>
+            Download Compressed Video
+          </a>
+
+          <div id="errorContainer" class="error-message"></div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
